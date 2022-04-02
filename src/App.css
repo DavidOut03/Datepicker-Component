@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
+/* The basic standard styles  */
+*,*::before,*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+ font-size: 62.5%;
+ scroll-behavior: smooth;
+ overflow-x: hidden; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: #E5E5E5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* datpicker css */
+
+.date-picker {
+  border-radius: .5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  font-family: sans-serif;
+  max-width: fit-content;
+  user-select: none;
+  cursor: pointer;
+}
+
+.date-picker.open {
+  padding: 3rem 8rem 1rem 8rem;
+  cursor: auto;
+}
+
+.date-picker .calendar {
+  display: none;
+}
+
+.date-picker.open .calendar {
+  display: grid;
+}
+
+.date-picker .date-picker__month-switch {
+  display: none;
+}
+
+.date-picker.open .date-picker__month-switch {
   display: flex;
-  flex-direction: column;
+}
+
+.date-picker.open .date-picker__selected-date {
+  margin: .5rem 0rem 1rem 0;
+
+}
+
+
+.date-picker__month {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+.date-picker__backwards {
+  font-size: 3rem;
+}
+
+.date-picker__forwards {
+  font-size: 3rem;
+}
+
+.date-picker button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  display: none;
+}
+
+.date-picker.open button {
+  display: block;
+}
+
+.date-picker__selected-date {
+  text-align: center;
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: #656565;
+}
+
+.calendar__weekday {
+  font-size: 1.8rem;
+  font-weight: bolder;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: inherit;
+}
+
+.date-picker__month-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.calendar {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.date-picker.open .calendar {
+  height: fit-content;
+  width: fit-content;
+  opacity: 1;
+
+  transition: all 0.3s ease-in-out;
+
+  display: grid;
+  grid-template-columns: repeat(7, 4rem);
+  grid-template-rows: repeat(7, 4rem);
+  gap: .5rem;
+}
+
+
+
+.calendar__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: inherit;
+  font-size: 1.6rem;
+  color: #5F5F5F;
+}
+
+.calendar__day.selected {
+  border: none;
+  border-radius: 50%;
+  background-color: #4b9ce9;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.calendar__day.today {
+  border: none;
+  border-radius: 50%;
+  background-color: #2085e4;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calendar__day:hover {
+  border: 2px solid #2085e4;
+  cursor: pointer;
 }
+
+.calendar__toDay:hover {
+  border-radius: 0px;
+  background-color: transparent;
+  color: #5F5F5F;
+}
+
+.other-month {
+  color: #AEAEAE !important;
+  cursor: auto !important;
+}
+
+.other-month:hover {
+  border: none !important;
+}
+
